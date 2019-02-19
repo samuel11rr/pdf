@@ -1,4 +1,5 @@
 <?php 
+ini_set('memory_limit', '-1');
 echo "pdf";
 
 	require_once('fpdf/fpdf.php');
@@ -6,12 +7,24 @@ echo "pdf";
 
     // array to hold list of PDF files to be merged
     $files = array(
-			    	"Documento1.pdf", 
-			    	"Documento2.pdf", 
-			    	"Documento3.pdf" );
+                    "parte1.pdf", 
+                    "parte2.pdf", 
+                    "parte3.pdf", 
+                    "parte4.pdf", 
+                    "parte5.pdf", 
+                    "parte6.pdf", 
+                    "parte7.pdf", 
+                    "parte8.pdf", 
+                    "parte9.pdf", 
+                    "parte10.pdf", 
+                    "parte11.pdf", 
+                    "parte12.pdf"
+
+                    );
     $pageCount = 0;
     // initiate FPDI
     $pdf = new FPDI();
+    $pdf->SetCompression(true);
 
     // iterate through the files
     foreach ($files AS $file) {
@@ -43,6 +56,6 @@ echo "pdf";
 
 
 
-	$output = $pdf->Output('./salida.pdf', 'F');
+	$output = $pdf->Output('./final1.pdf', 'F');
 	return $output;
  ?>
